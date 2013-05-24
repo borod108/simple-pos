@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Item:</b>
+  <%= @item_line.item_id %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @item_line.quantity %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @item_line.cost %>
+</p>
+
+<p>
+  <b>Cost with shipment:</b>
+  <%= @item_line.cost_with_shipment %>
+</p>
+
+<p>
+  <b>Shipment:</b>
+  <%= @item_line.shipment_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_line_path(@item_line) %> |
+<%= link_to 'Back', item_lines_path %>

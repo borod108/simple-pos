@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Item line:</b>
+  <%= @item_line_price.item_line_id %>
+</p>
+
+<p>
+  <b>Recommended price:</b>
+  <%= @item_line_price.recommended_price %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_line_price_path(@item_line_price) %> |
+<%= link_to 'Back', item_line_prices_path %>
