@@ -1,4 +1,22 @@
 SimplePos::Application.routes.draw do
+  resources :sales
+
+
+  resources :item_line_prices
+
+
+  resources :item_lines
+
+
+  resources :items
+
+
+  resources :item_types
+
+
+  resources :departments
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
