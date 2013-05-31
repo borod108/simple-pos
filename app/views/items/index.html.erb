@@ -13,7 +13,7 @@
 <% @items.each do |item| %>
   <tr>
     <td><%= item.name %></td>
-    <td><%= item.item_type_id %></td>
+    <td><%= ItemType.find(item.item_type_id).name %></td>
     <td><%= item.weight %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>

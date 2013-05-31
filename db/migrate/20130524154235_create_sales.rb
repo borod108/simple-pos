@@ -3,10 +3,10 @@ class CreateSales < ActiveRecord::Migration
     create_table :sales do |t|
       t.integer :user_id
       t.integer :sales_person_id
+      t.integer :item_id
       t.string :client
       t.integer :price
-      t.integer :recived
-      t.integer :sale_line_id
+      t.integer :received
       t.date :date
 
       t.timestamps

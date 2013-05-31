@@ -5,10 +5,10 @@ describe "sales/show" do
     @sale = assign(:sale, stub_model(Sale,
       :user_id => 1,
       :sales_person_id => 2,
+      :item_id => 3,
       :client => "Client",
-      :price => 3,
-      :recived => 4,
-      :sale_line_id => 5
+      :price => 4,
+      :received => 5
     ))
   end
 
@@ -17,8 +17,8 @@ describe "sales/show" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/1/)
     rendered.should match(/2/)
-    rendered.should match(/Client/)
     rendered.should match(/3/)
+    rendered.should match(/Client/)
     rendered.should match(/4/)
     rendered.should match(/5/)
   end

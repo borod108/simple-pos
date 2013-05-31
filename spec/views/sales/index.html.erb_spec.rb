@@ -6,18 +6,18 @@ describe "sales/index" do
       stub_model(Sale,
         :user_id => 1,
         :sales_person_id => 2,
+        :item_id => 3,
         :client => "Client",
-        :price => 3,
-        :recived => 4,
-        :sale_line_id => 5
+        :price => 4,
+        :received => 5
       ),
       stub_model(Sale,
         :user_id => 1,
         :sales_person_id => 2,
+        :item_id => 3,
         :client => "Client",
-        :price => 3,
-        :recived => 4,
-        :sale_line_id => 5
+        :price => 4,
+        :received => 5
       )
     ])
   end
@@ -27,8 +27,8 @@ describe "sales/index" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => 1.to_s, :count => 2
     assert_select "tr>td", :text => 2.to_s, :count => 2
-    assert_select "tr>td", :text => "Client".to_s, :count => 2
     assert_select "tr>td", :text => 3.to_s, :count => 2
+    assert_select "tr>td", :text => "Client".to_s, :count => 2
     assert_select "tr>td", :text => 4.to_s, :count => 2
     assert_select "tr>td", :text => 5.to_s, :count => 2
   end

@@ -1,0 +1,17 @@
+<fieldset>
+
+  <div class="row">
+    <div class="span3">
+      <%= f.association :item %>
+    </div>
+    <div class="span3">
+      <%= f.input :quantity%>
+    </div>
+    <div class="span3">
+      <%= f.input :cost%>
+    </div>
+    <div class="span3">
+      <%= f.hidden_field :_destroy %> <%= link_to "remove", '#', class: "remove_fields" %>
+    </div>
+  </div>
+</fieldset>

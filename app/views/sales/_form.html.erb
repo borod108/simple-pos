@@ -1,45 +1,16 @@
-<%= form_for(@sale) do |f| %>
-  <% if @sale.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+<%= simple_form_for(@sale) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @sale.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="form-inputs">
+    <%= f.association :sales_person, collection: User.all, :label_method => :email,:selected => current_user.id %>
+    <%= f.association :item %>
+    <%= f.input :client %>
+    <%= f.input :price %>
+    <%= f.input :received, label: 'Amount Received' %>
+    <%= f.input :date %>
+  </div>
 
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :sales_person_id %><br />
-    <%= f.number_field :sales_person_id %>
-  </div>
-  <div class="field">
-    <%= f.label :client %><br />
-    <%= f.text_field :client %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :recived %><br />
-    <%= f.number_field :recived %>
-  </div>
-  <div class="field">
-    <%= f.label :sale_line_id %><br />
-    <%= f.number_field :sale_line_id %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>

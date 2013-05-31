@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @order.date %>
+
+
+  <b>|  Sales person:</b>
+  <%= @order.sales_person.email %>
+
+
+
+  <b>|  User:</b>
+  <%= @order.user.email%>
+
+  <b>|  Number of Items:</b>
+  <%= @order.count%>
+  <b>|  Sum:</b>
+  <%= @order.sum %>
+
+</p>
+
+
+    <table class="table">
+      <tr>
+        <th>User</th>
+        <th>Sales person</th>
+        <th>Item</th>
+        <th>Department</th>
+        <th>Client</th>
+        <th>Price</th>
+        <th>Received</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <% @order.sales.each do |sale| %>
+          <tr>
+            <% item = sale.item_line.item%>
+            <td><%= sale.order.user.email if sale.order.user.email %></td>
+            <td><%= sale.sales_person.email %></td>
+            <td><%= item.name %></td>
+            <td><%= item.item_type.department.name %></td>
+            <td><%= sale.client %></td>
+            <td><%= sale.price %></td>
+            <td><%= sale.received %></td>
+            <td><%= sale.order.date %></td>
+            <td><%= link_to 'Show', sale %></td>
+            <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+            <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+    </table>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

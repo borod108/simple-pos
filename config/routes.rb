@@ -1,6 +1,20 @@
 SimplePos::Application.routes.draw do
+
+  resources :orders
+
+
+  resources :shipments
+
+
   resources :sales
 
+
+  devise_for :users
+
+  get "static_pages/home"
+  root to: 'static_pages#home'
+
+  resources :users
 
   resources :item_line_prices
 

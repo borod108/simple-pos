@@ -1,4 +1,4 @@
-<%= form_for(@item_type) do |f| %>
+<%= simple_form_for(@item_type) do |f| %>
   <% if @item_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item_type.errors.count, "error") %> prohibited this item_type from being saved:</h2>
@@ -11,15 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :department_id %><br />
-    <%= f.number_field :department_id %>
-  </div>
-  <div class="actions">
+
+    <%= f.input :name %>
+
+    <%= f.collection_select :department_id, Department.all, :id, :name %>
+
+    <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
