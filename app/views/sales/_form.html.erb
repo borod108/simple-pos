@@ -3,11 +3,10 @@
 
   <div class="form-inputs">
     <%= f.association :sales_person, collection: User.all, :label_method => :email,:selected => current_user.id %>
-    <%= f.association :item %>
+    <%= f.association :item_line %>
     <%= f.input :client %>
     <%= f.input :price %>
     <%= f.input :received, label: 'Amount Received' %>
-    <%= f.input :date %>
   </div>
 
   <div class="form-actions">

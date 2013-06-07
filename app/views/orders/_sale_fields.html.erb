@@ -1,0 +1,26 @@
+<fieldset>
+  <div class="row">
+    <div class="span2">
+      <%= f.association :item_line, collection: ItemLine.forward_lines, :label_method => lambda{|l| l.item_name}, :value_method  => lambda {|l| l.id} , :input_html => {:style=> 'width:120px'}%>
+    </div>
+
+    <div class="span2">
+      <%= f.input :amount, label: 'Amount' ,  :input_html => {:style=> 'width:120px'}%>
+    </div>
+
+    <div class="span2">
+      <%= f.input :client ,  :input_html => {:style=> 'width:120px'}%>
+    </div>
+
+    <div class="span2">
+      <%= f.input :price ,  :input_html => {:style=> 'width:120px'}%>
+    </div>
+    <div class="span2">
+      <%= f.input :received, label: 'Amount Received' ,  :input_html => {:style=> 'width:120px'}%>
+    </div>
+
+
+
+    <%= link_to "remove", '#', class: "remove_fields" %>
+  </div>
+</fieldset>

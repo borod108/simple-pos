@@ -3,10 +3,13 @@
 
   <div class="form-inputs">
     <%= f.input :date %>
-    <%= f.input :sales_person_id %>
-    <%= f.input :user_id %>
+    <%= f.association :sales_person, label_method: :email,selected: current_user.id %>
   </div>
 
+    <%= f.fields_for :sales do |builder| %>
+        <%= render :partial => 'sale_fields' %>
+    <% end %>
+    <%= link_to_add_fields "Add A Sale", f, :sales %>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

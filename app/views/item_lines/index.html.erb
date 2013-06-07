@@ -1,11 +1,12 @@
 <h1>Listing item_lines</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Item</th>
+    <th>Item_Id</th>
     <th>Quantity</th>
-    <th>Cost</th>
-    <th>Cost with shipment</th>
+    <th>Cost per unit</th>
+    <th>Cost with shipment per unit</th>
     <th>Shipment</th>
     <th></th>
     <th></th>
@@ -14,6 +15,7 @@
 
 <% @item_lines.each do |item_line| %>
   <tr>
+    <td><%= item_line.item.name %></td>
     <td><%= item_line.item_id %></td>
     <td><%= item_line.quantity %></td>
     <td><%= item_line.cost %></td>
