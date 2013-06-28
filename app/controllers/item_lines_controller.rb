@@ -1,6 +1,7 @@
 class ItemLinesController < ApplicationController
   # GET /item_lines
   # GET /item_lines.json
+  before_filter :authenticate_user!
   def index
     @item_lines = ItemLine.all
 

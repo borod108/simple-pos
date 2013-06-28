@@ -1,6 +1,7 @@
 class ShipmentsController < ApplicationController
   # GET /shipments
   # GET /shipments.json
+  before_filter :authenticate_user!
   def index
     @shipments = Shipment.all
 
@@ -41,9 +42,14 @@ class ShipmentsController < ApplicationController
   # POST /shipments.json
   def create
     @shipment = Shipment.new(params[:shipment])
-
+    price_per_gram = 0
+    price_per_gram = @shipment.cost*1.0 / @shipment.total_weight if @shipment.total_weight != 0
     respond_to do |format|
       if @shipment.save
+        @shipment.item_lines.each do |il|
+          il.cost_with_shipment = il.cost + price_per_gram*il.item.weight
+          il.save
+        end
         format.html { redirect_to @shipment, notice: 'Shipment was successfully created.' }
         format.json { render json: @shipment, status: :created, location: @shipment }
       else

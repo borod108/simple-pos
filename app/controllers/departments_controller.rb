@@ -1,6 +1,8 @@
 class DepartmentsController < ApplicationController
   # GET /departments
   # GET /departments.json
+
+  before_filter :authenticate_user!
   def index
     @departments = Department.all
 
@@ -14,7 +16,7 @@ class DepartmentsController < ApplicationController
   # GET /departments/1.json
   def show
     @department = Department.find(params[:id])
-
+    @sales = @department.unfinished_deals
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @department }

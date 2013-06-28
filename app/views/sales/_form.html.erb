@@ -5,8 +5,8 @@
     <%= f.association :sales_person, collection: User.all, :label_method => :email,:selected => current_user.id %>
     <%= f.association :item_line %>
     <%= f.input :client %>
-    <%= f.input :price %>
-    <%= f.input :received, label: 'Amount Received' %>
+    <%= f.input :price_in_nis %>
+    <%= f.input :received_in_nis, label: 'Amount Received' %>
   </div>
 
   <div class="form-actions">

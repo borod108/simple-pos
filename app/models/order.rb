@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
 
   def sum
     sum= 0
-    sales.each{|s| sum = sum + s.price}
+    sales.each{|s| sum = sum + s.price_in_nis}
     sum
   end
 end

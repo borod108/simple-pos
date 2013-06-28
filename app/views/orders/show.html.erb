@@ -44,8 +44,8 @@
             <td><%= item.name %></td>
             <td><%= item.item_type.department.name %></td>
             <td><%= sale.client %></td>
-            <td><%= sale.price %></td>
-            <td><%= sale.received %></td>
+            <td><%= sale.price_in_nis %></td>
+            <td><%= sale.received_in_nis %></td>
             <td><%= sale.order.date %></td>
             <td><%= link_to 'Show', sale %></td>
             <td><%= link_to 'Edit', edit_sale_path(sale) %></td>

@@ -2,7 +2,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :cost %>
+      <%= f.input :cost_in_nis %>
       <%= f.input :date %>
       <%= f.fields_for :item_lines do |builder| %>
           <%= render 'item_line_fields', f: builder %>

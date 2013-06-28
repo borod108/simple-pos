@@ -1,6 +1,7 @@
 class ItemLinePricesController < ApplicationController
   # GET /item_line_prices
   # GET /item_line_prices.json
+  before_filter :authenticate_user!
   def index
     @item_line_prices = ItemLinePrice.all
 

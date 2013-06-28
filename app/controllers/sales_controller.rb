@@ -1,6 +1,7 @@
 class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
+  before_filter :authenticate_user!
   def index
     @sales = Sale.all
 

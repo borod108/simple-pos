@@ -5,6 +5,8 @@
     <th>Date</th>
     <th>Sales person</th>
     <th>User</th>
+    <th>Sum</th>
+    <th>Amount of Items</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +17,11 @@
     <td><%= order.date %></td>
     <td><%= User.find(order.sales_person_id).email %></td>
     <td><%= order.user.email %></td>
+
+    <td><%= order.sum %></td>
+    <td><%= order.count %></td>
+
+
     <td><%= link_to 'Show', order %></td>
     <td><%= link_to 'Edit', edit_order_path(order) %></td>
     <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>

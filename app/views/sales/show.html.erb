@@ -2,17 +2,17 @@
 
 <p>
   <b>User:</b>
-  <%= @sale.order.user_id %>
+  <%= @sale.order.user.email %>
 </p>
 
 <p>
   <b>Sales person:</b>
-  <%= @sale.sales_person_id %>
+  <%= @sale.sales_person.email %>
 </p>
 
 <p>
   <b>Item:</b>
-  <%= @sale.item_id %>
+  <%= @sale.item_line.item.name %>
 </p>
 
 <p>
@@ -22,17 +22,17 @@
 
 <p>
   <b>Price:</b>
-  <%= @sale.price %>
+  <%= @sale.price_in_nis %>
 </p>
 
 <p>
   <b>Received:</b>
-  <%= @sale.received %>
+  <%= @sale.received_in_nis %>
 </p>
 
 <p>
   <b>Date:</b>
-  <%= @sale.date %>
+  <%= @sale.order.date %>
 </p>
 
 

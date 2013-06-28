@@ -1,6 +1,7 @@
 class ItemTypesController < ApplicationController
   # GET /item_types
   # GET /item_types.json
+  before_filter :authenticate_user!
   def index
     @item_types = ItemType.all
 

@@ -1,9 +1,56 @@
 <p id="notice"><%= notice %></p>
 
+<%= form_tag({:controller => "departments", :action => "show"}, {:method => "get"}) do %>
+    <input type="text" name="daterange" id="daterange">
+    <%= submit_tag "Filter" %>
+<% end %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#daterange').daterangepicker();
+    });
+</script>
 <p>
   <b>Name:</b>
   <%= @department.name %>
+  <br>
+  <b>Balance: </b>
+  <%= @department.balance %>
 </p>
+
+
+<table class="table">
+  <tr>
+    <th>User</th>
+    <th>Sales person</th>
+    <th>Item</th>
+    <th>Department</th>
+    <th>Client</th>
+    <th>Price</th>
+    <th>Received</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @sales.each do |sale| %>
+      <tr>
+        <% item = sale.item_line.item%>
+        <td><%= sale.order.user.email if sale.order.user.email %></td>
+        <td><%= sale.sales_person.email %></td>
+        <td><%= item.name %></td>
+        <td><%= item.item_type.department.name %></td>
+        <td><%= sale.client %></td>
+        <td><%= sale.price_in_nis %></td>
+        <td><%= sale.received_in_nis %></td>
+        <td><%= sale.order.date %></td>
+        <td><%= link_to 'Show', sale %></td>
+        <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+      </tr>
+  <% end %>
+</table>
+
 
 
 <%= link_to 'Edit', edit_department_path(@department) %> |
