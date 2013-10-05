@@ -66,6 +66,16 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
 
+    @order.user_id  = current_user.id
+    @order.sales.each do |s|
+      if not s._destroy
+        s.sales_person_id = @order.sales_person_id
+        s.order_id = params[:id]
+      else
+        s.delete
+      end
+    end
+
     respond_to do |format|
       if @order.update_attributes(params[:order])
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
