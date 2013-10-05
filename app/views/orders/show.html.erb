@@ -40,7 +40,7 @@
           <tr>
             <% item = sale.item_line.item%>
             <td><%= sale.order.user.email if sale.order.user.email %></td>
-            <td><%= sale.sales_person.email %></td>
+            <td><%= User.find(sale.sales_person_id).email if sale.sales_person_id%></td>
             <td><%= item.name %></td>
             <td><%= item.item_type.department.name %></td>
             <td><%= sale.client %></td>
