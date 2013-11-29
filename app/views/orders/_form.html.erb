@@ -9,7 +9,7 @@
     <%= f.fields_for :sales  do |builder| %>
         <%= render partial: 'sale_fields', :locals=>{:f => builder}  %>
     <% end %>
-    <%= link_to_add_fields "Add A Sale", f, :sales %>
+    <%= link_to_add_fields "+ Add A Sale", f, :sales %>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

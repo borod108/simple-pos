@@ -46,6 +46,9 @@ class OrdersController < ApplicationController
     @order.sales.each do |s|
       s.sales_person_id = @order.sales_person_id
       s.order_id = 1
+      s.received_in_nis ||= s.price_in_nis
+      s.client ||= 'Street'
+      s.amount ||= 1
     end
     respond_to do |format|
       if @order.save
@@ -71,6 +74,7 @@ class OrdersController < ApplicationController
       if not s._destroy
         s.sales_person_id = @order.sales_person_id
         s.order_id = params[:id]
+        s.received_in_nis ||= s.price_in_nis
       else
         s.delete
       end

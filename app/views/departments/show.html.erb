@@ -37,14 +37,14 @@
   <% @sales.each do |sale| %>
       <tr>
         <% item = sale.item_line.item%>
-        <td><%= sale.order.user.email if sale.order.user.email %></td>
+        <td><%= sale.order.user.email if sale.order %></td>
         <td><%= sale.sales_person.email %></td>
         <td><%= item.name %></td>
         <td><%= item.item_type.department.name %></td>
         <td><%= sale.client %></td>
         <td><%= sale.price_in_nis %></td>
         <td><%= sale.received_in_nis %></td>
-        <td><%= sale.order.date %></td>
+        <td><%= sale.order.date  if sale.order %></td>
         <td><%= link_to 'Show', sale %></td>
         <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
       </tr>

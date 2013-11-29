@@ -2,7 +2,7 @@
 
 <p>
   <b>User:</b>
-  <%= @sale.order.user.email %>
+  <%= @sale.order.user.email if @sale.order%>
 </p>
 
 <p>
@@ -32,7 +32,7 @@
 
 <p>
   <b>Date:</b>
-  <%= @sale.order.date %>
+  <%= @sale.order.date if @sale.order %>
 </p>
 
 
