@@ -6,3 +6,11 @@ development:
   username: pos
   host: localhost
   password: qwe123
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: pos_production
+  pool: 5
+  username: pos
+  host: localhost
+  password: qwe123
