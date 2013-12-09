@@ -45,6 +45,7 @@ class OrdersController < ApplicationController
     @order.user_id  = current_user.id
     @order.sales.each do |s|
       s.sales_person_id = @order.sales_person_id
+      s.sales_person_id = current_user.id if s.sales_person_id.blank?
       s.order_id = 1
       s.received_in_nis ||= s.price_in_nis
       s.client ||= 'Street'
