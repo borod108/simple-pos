@@ -14,6 +14,7 @@ class Order < ActiveRecord::Base
     sales.each do |s|
       sum = sum + s.amount
     end
+    sum
   end
 
   def sum
