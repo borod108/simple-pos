@@ -9,6 +9,13 @@ class Order < ActiveRecord::Base
     sales.count
   end
 
+  def count_items
+    sum = 0
+    sales.each do |s|
+      sum = sum + s.amount
+    end
+  end
+
   def sum
     sum= 0
     sales.each{|s| sum = sum + s.price_in_nis}

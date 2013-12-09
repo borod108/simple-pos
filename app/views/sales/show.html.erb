@@ -7,7 +7,7 @@
 
 <p>
   <b>Sales person:</b>
-  <%= @sale.sales_person.email %>
+  <%= @sale.sales_person.email if @sale.sales_person %>
 </p>
 
 <p>
