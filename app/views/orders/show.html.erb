@@ -28,6 +28,7 @@
         <th>Item</th>
         <th>Department</th>
         <th>Client</th>
+        <th>Amount</th>
         <th>Price</th>
         <th>Received</th>
         <th>Date</th>
@@ -44,6 +45,7 @@
             <td><%= item.name %></td>
             <td><%= item.item_type.department.name %></td>
             <td><%= sale.client %></td>
+            <td><%= sale.amount %></td>
             <td><%= sale.price_in_nis %></td>
             <td><%= sale.received_in_nis %></td>
             <td><%= sale.order.date %></td>
